@@ -95,13 +95,13 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>june22-release</name>
+	      <name>LION TECH ACADEMY Releases Nexus Repository</name>
 	      <url>http://44.202.139.87:8081/repository/june22-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>june22-snapshot</name>
+	      <name>LION TECH ACADEMY Snapshot Nexus Repository</name>
 	      <url>http://44.202.139.87:8081/repository/june22-snapshot/</url>
 	    </snapshotRepository>
 	    
