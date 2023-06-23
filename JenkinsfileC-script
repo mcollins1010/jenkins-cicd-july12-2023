@@ -32,7 +32,7 @@ node{
             input message: 'Approve application ready for deployment to prod'
         }
     }
-    stage('9-Deploy to production'){
+    stage('9-Deploy to production department'){
         deploy adapters: [tomcat9(credentialsId: 'jenkins-tomcat deployment', path: '', url: 'http://34.228.27.232:8009/')], contextPath: 'production-environment', war: 'target/*.war'
     }
     stage('send ms teams notification'){
