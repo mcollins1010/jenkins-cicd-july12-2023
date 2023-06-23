@@ -36,7 +36,7 @@ node{
         deploy adapters: [tomcat9(credentialsId: 'jenkins-tomcat deployment', path: '', url: 'http://34.228.27.232:8009/')], contextPath: 'production-environment', war: 'target/*.war'
     }
     stage('send ms teams notification'){
-        office365ConnectorSend message: 'congratulations-to-C-class20', webhookUrl: 'https://liontechacademy.webhook.office.com/webhookb2/1c45852e-99e7-4aa7-a7f5-be60526bb887@b290c85e-0692-4ada-8f25-2a3b60aca73e/JenkinsCI/38f55bedaf4142bc8366233b562335b3/90dc930a-1d3a-4c50-9c2d-39d010312f55'
+        office365ConnectorSend color:'red', status:'APP Deployed Successfully', message: 'congratulations-to-C-class20', webhookUrl: 'https://liontechacademy.webhook.office.com/webhookb2/1c45852e-99e7-4aa7-a7f5-be60526bb887@b290c85e-0692-4ada-8f25-2a3b60aca73e/JenkinsCI/38f55bedaf4142bc8366233b562335b3/90dc930a-1d3a-4c50-9c2d-39d010312f55'
     }
 
 
