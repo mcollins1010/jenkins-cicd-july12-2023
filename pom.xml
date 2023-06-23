@@ -22,9 +22,9 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://54.86.162.223:9000/</sonar.host.url>
+		<sonar.host.url>http://54.196.137.122:9000/</sonar.host.url>
 		<sonar.login>linux</sonar.login>  
-		<sonar.login>cdcf763140bd1c6d79d733453fe14c9505865a60</sonar.login>
+		<sonar.login>592b030c7ce73a208dcf4d61e25b587016a036aa</sonar.login>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -96,13 +96,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>LION TECH ACADEMY Releases Nexus Repository</name>
-	      <url>http://34.203.34.19:8081/repository/test17-release/</url>
+	      <url>http://44.202.139.87:8081/repository/june22-pipeline-repo-RE/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>LION TECH ACADEMY Snapshot Nexus Repository </name>
-	      <url>http://34.203.34.19:8081/repository/test17-snapshot/</url>
+	      <name>LION TECH ACADEMY Snapshot Nexus Repository</name>
+	      <url>http://44.202.139.87:8081/repository/june22-pipeline-repo-SN/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>

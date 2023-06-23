@@ -1,0 +1,59 @@
+node{
+
+    def mavenHome = tool name : 'maven3.9.2'
+    stage('1-clone the code'){
+        git 'https://github.com/Arlette-Yolande/jenkins-cicd-june17-2023.git'
+    }
+
+
+    stage('2-Build and Test'){
+        sh "${mavenHome}/bin/mvn clean package"
+
+    }
+
+    stage('3-codequality-analysis'){
+        sh "${mavenHome}/bin/mvn sonar:sonar"
+    }
+
+    stage('4-upload-2-nexus'){
+        sh "${mavenHome}/bin/mvn deploy"
+
+    }
+stage('deploy-dev'){
+    sh "echo 'deploy to dev environment'"
+    deploy adapters: [tomcat9(credentialsId: '2cb1a9c2-c480-4c23-adf2-9ee8b5ddc25d', path: '', url: 'http://54.196.137.122:8009/')], contextPath: 'dev', war: 'target/*.war'
+}
+
+stage('approvalgate'){
+        sh "echo 'please contact Desmond for approval'"
+        timeout(time:5, unit: 'DAYS'){
+            input message:  'Approve application ready for deployment to dev'
+
+    }
+}
+
+
+stage('deploy-to-dara'){
+  deploy adapters: [tomcat9(credentialsId: '2cb1a9c2-c480-4c23-adf2-9ee8b5ddc25d', path: '', url: 'http://54.196.137.122:8009/')], contextPath: 'dara', war: 'target/*.war'
+}
+
+
+    stage('approvalgate'){
+        sh "echo 'please contact Desmond for approval'"
+        timeout(time:10, unit: 'DAYS'){
+            input message:  'Approve application ready for deployment to prod'
+
+
+    }
+
+
+
+} 
+ stage('deploy to prod'){
+    deploy adapters: [tomcat9(credentialsId: '2cb1a9c2-c480-4c23-adf2-9ee8b5ddc25d', path: '', url: 'http://54.196.137.122:8009/')], contextPath: 'production-environment', war: 'target/*.war'
+ }
+
+
+
+
+}
