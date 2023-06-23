@@ -25,7 +25,7 @@ stage('deploy-dev'){
 }
 
 stage('approvalgate'){
-    sh "echo 'please contact desmond for approval'"
+    sh "echo 'please contact Desmond for approval'"
     timeout(time:5, unit: 'Days'){
         input message: 'Approve application ready for deployment to dev'
 
