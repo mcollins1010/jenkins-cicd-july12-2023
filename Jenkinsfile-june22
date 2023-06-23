@@ -37,11 +37,15 @@ stage('deploy-to-dara'){
   deploy adapters: [tomcat9(credentialsId: '2cb1a9c2-c480-4c23-adf2-9ee8b5ddc25d', path: '', url: 'http://54.196.137.122:8009/')], contextPath: 'dara', war: 'target/*.war'
 }
 
-stage('approvalgate'){
-    sh "echo 'please contact desmond for approval'"
-    timeout(time:10, unit: 'Days'){
-        input message: 'Approve application ready for deployment to prod'
+
+    stage('approvalgate'){
+        sh "echo 'please contact Desmond for approval'"
+        timeout(time:10, unit: 'DAYS'){
+            input message:  'Approve application ready for deployment to prod'
+
+
     }
+
 
 
 } 
