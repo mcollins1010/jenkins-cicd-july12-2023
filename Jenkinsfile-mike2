@@ -8,7 +8,7 @@ pipeline{
 stages{
     stage('clonefromsourcecode'){
         steps{
-            sh "'echo getting source code'"
+            sh "echo 'getting source code'"
            git 'https://github.com/Lion-Technology-Solutions/jenkins-cicd-june17-2023.git'
         }
     }
