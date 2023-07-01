@@ -1,0 +1,51 @@
+pipeline{
+
+    agent any
+
+    tools{
+        maven "maven3.9.3"
+    }
+stages{
+    stage('clonefromsourcecode'){
+        steps{
+            sh "'echo getting source code'"
+            git 'https://github.com/Lion-Technology-Solutions/jenkins-cicd-june17-2023.git'
+        }
+    }
+
+    stage('build+test+package'){
+        steps{
+            sh "echo 'building application'"
+            sh "echo 'testing must passed before building'"
+            sh "mvn install"
+            sh "mvn validate"
+            sh "mvn test"
+            sh "mvn clean package"
+        }
+    }
+
+    stage('running sonarqube analysis'){
+        steps{
+            sh "echo 'running quality analysis'"
+            sh "mvn sonar:sonar"
+        }
+    }
+
+    stage('upload artifact to nexus'){
+        steps{
+            sh "echo 'deploy to nexus'"
+            sh "mvn deploy"
+        }
+    }
+
+    stage('deploy to test environment'){
+        steps{
+            sh "echo 'deploy to tomcat'"
+        }
+    }
+}
+
+
+
+
+}
