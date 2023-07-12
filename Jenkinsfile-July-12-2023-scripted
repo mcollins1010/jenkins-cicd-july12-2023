@@ -16,7 +16,5 @@ node {
         sh "${mavenHome}/bin/mvn deploy"
     }
 
-    stage('deploy to dev env'){
-        sh "echo 'deploy to dev environment' " 
-    }
+    
 }
