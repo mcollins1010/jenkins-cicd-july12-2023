@@ -1,0 +1,22 @@
+node {
+    def mavenHome = tool name : 'maven3.9.3'
+    stage('1- clone the code'){
+        git 'https://github.com/mcollins1010/jenkins-cicd-july12-2023.git'
+    }
+
+    stage('2- Build and Test'){
+        sh "${mavenHome}/bin/mvn/ clean package"
+    }
+
+     stage('3-codequality-analysis'){
+        sh "${mavenHome}/bin/mvn sonar:sonar"
+    }
+
+    stage('4-upload-2-nexus'){
+        sh "${mavenHome}/bin/mvn deploy"
+    }
+
+    stage('deploy to dev env'){
+        sh "echo 'deploy to dev environment' " 
+    }
+}
